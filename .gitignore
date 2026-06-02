@@ -1,0 +1,27 @@
+# 构建产物
+build/
+Release/
+Debug/
+*.exe
+*.obj
+*.o
+*.pdb
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 大型原始图像 (136张 × 5MB = 680MB, 不提交)
+20260422_114158/
+
+# 检测结果输出
+results/
+
+# IDE
+.vscode/
+*.user
+*.suo
+
+# 临时文件
+mem.txt
