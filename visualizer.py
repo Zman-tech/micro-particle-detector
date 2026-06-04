@@ -253,7 +253,7 @@ def draw_overlay(vis: np.ndarray, particles: List[Particle],
         r = int(round(p.radius_px))
 
         # ---- 圆形标注 (半径 ×1.2 补偿OTSU边缘切除) ----
-        r_display = int(round(p.radius_px * 1.20))
+        r_display = int(round(p.radius_px ))
         thickness = 2 if p.type == "5um_particle" else 1
         cv2.circle(vis, (cx, cy), r_display, color, thickness)
 
@@ -435,15 +435,15 @@ def main():
         delay = max(1, int(50 / max(speed, 0.1))) if speed > 0 else 0
         key = cv2.waitKey(delay) & 0xFF
 
-        if key == 27 or key == ord('q'):
+        if key == 27 or key == ord('q') or key == ord('H'):
             break
-        elif key == ord('h'):
+        elif key == ord('h') or key == ord('H'):
             show_help = not show_help
-        elif key == ord('g'):
+        elif key == ord('g') or key == ord('G'):
             show_binary = not show_binary
-        elif key == ord('b'):
+        elif key == ord('b') or key == ord('B'):
             show_bbox = not show_bbox
-        elif key == ord('c'):
+        elif key == ord('c') or key == ord('C'):
             det._use_circularity_filter = not det._use_circularity_filter
             print(f"Circularity filter: {'ON' if det._use_circularity_filter else 'OFF'}")
         elif key == ord(' '):
